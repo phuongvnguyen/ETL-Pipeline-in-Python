@@ -64,7 +64,6 @@ class transform():
         self.convert_data=self.extract_data
         #display(self.convert_data.head(5).T)
         print('Converted successfully!')
-        
         self.drop_data=self.drop_row(self.convert_data)
         self.reset_data=self.reset_id(self.drop_data)         
         self.col_drop=['slug', 'ranknow', 'volume', 'market', 'close_ratio', 'spread']
