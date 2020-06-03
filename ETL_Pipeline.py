@@ -57,14 +57,10 @@ class transform():
         self.list_money=self.list_currency(self.extract_data,self.name_col)
         print('I am converting currency\n...')
         self.assetsCode = ['BTC','ETH','XRP','LTC']
-        self.extract_data['open'] = self.convert_currency(self.extract_data[['open', 'asset']],
-                                                          self.assetsCode)
-        self.extract_data['close']= self.convert_currency(self.extract_data[['close', 'asset']],
-                                                          self.assetsCode)
-        self.extract_data['high'] = self.convert_currency(self.extract_data[['high', 'asset']],
-                                                          self.assetsCode)
-        self.extract_data['low']  = self.convert_currency(self.extract_data[['low', 'asset']],
-                                                          self.assetsCode)
+        self.extract_data['open'] = self.convert_currency(self.extract_data[['open', 'asset']], self.assetsCode)
+        self.extract_data['close']= self.convert_currency(self.extract_data[['close', 'asset']],self.assetsCode)
+        self.extract_data['high'] = self.convert_currency(self.extract_data[['high', 'asset']], self.assetsCode)
+        self.extract_data['low']  = self.convert_currency(self.extract_data[['low', 'asset']], self.assetsCode)
         self.convert_data=self.extract_data
         #display(self.convert_data.head(5).T)
         print('Converted successfully!')
