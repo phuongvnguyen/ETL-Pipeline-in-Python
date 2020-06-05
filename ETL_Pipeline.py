@@ -154,7 +154,12 @@ class load():
         print('I am exloring the'+Bold+' Cryptocurrency'+End+' table')
         self.data = get_ipython().run_line_magic('sql', 'SELECT * FROM data LIMIT 5')
         display(self.data)
-        return self.data       
-         
+        return self.data    
+    
+class main():
+    extract=extract()
+    transform=transform(extract)
+    load=load(transform)
+            
 if __name__=='__main__':
-    load(transform(extract()))
+    main()
