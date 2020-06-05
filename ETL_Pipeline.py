@@ -13,22 +13,12 @@ import pandas as pd
 import numpy as np
 get_ipython().run_line_magic('reload_ext', 'sql')
 import sqlite3
-Purple= '\033[95m'
-Cyan= '\033[96m'
-Darkcyan= '\033[36m'
-Blue = '\033[94m'
-Green = '\033[92m'
-Yellow = '\033[93m'
-Red = '\033[91m'
-Bold = "\033[1m"
-Reset = "\033[0;0m"
-Underline= '\033[4m'
-End = '\033[0m'
+
 
 class extract():
     
     def __init__(self):
-        print(Bold+ 'Extract'+ End+': data from the csv file')
+        print('\033[1m'+ 'Extract'+ '\033[0m'+': data from the csv file')
         self.name_file='crypto-markets.csv'
         self.crypto_df = self.load_data(self.name_file) 
         self.no_obs=5
@@ -50,7 +40,7 @@ class extract():
 class transform():
     
     def __init__(self,extract):
-        print(Bold+'Transform'+ End+': the extracted data')
+        print('\033[1m'+'Transform'+ '\033[0m'+': the extracted data')
         self.extract_data=extract.crypto_df
         print('Data manipulation and cleansing\n.....')
         self.name_col='asset'
@@ -111,7 +101,7 @@ class transform():
 class load():
     
     def __init__(self,transform):
-        print(Bold+'Load'+End+': the transformed data to the SQL database')
+        print('\033[1m'+'Load'+'\033[0m'+': the transformed data to the SQL database')
         self.loaded_data=transform.dropc_data#prepare_data
         self.showed_data=self.list_data(self.loaded_data,3)
         self.path=r'C:\Users\Phuong_1\Documents\PhuongDatabase\Phuong_database.db'
